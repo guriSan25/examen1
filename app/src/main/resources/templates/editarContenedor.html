@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Formulario Contenedor</title>
+</head>
+
+<body>
+    <h1>Crear / Editar Contenedor</h1>
+    <form th:action="@{/contenedores/guardar}" th:object="${contenedor}" method="post">
+        <input type="hidden" th:field="*{id_contenedor}" />
+        <label>VIN: <input type="text" th:field="*{vin}" /></label><br />
+        <label>Fecha: <input type="date" th:field="*{fecha}" /></label><br />
+        <label>Barco:
+            <select class="form-control" th:field="*{barco.id_barco}">
+                <option th:each="barco : ${barcos}" th:value="${barco.id_barco}" th:text="${barco.nombre}">
+                </option>
+            </select>
+        </label><br />
+        <button type="submit">Guardar</button>
+    </form>
+</body>
+
+</html>

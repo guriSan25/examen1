@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Formulario Barco</title></head>
+<body>
+    <h1>Crear / Editar Barco</h1>
+    <form th:action="@{/barcos/guardar}" th:object="${barcos}" method="post">
+        <input type="hidden" th:field="*{id_barco}" />
+        <label>Nombre: <input type="text" th:field="*{nombre}" /></label><br/>
+        <label>Origen: <input type="text" th:field="*{origen}" /></label><br/>
+        <label>Destino: <input type="text" th:field="*{destino}" /></label><br/>
+        <label>Capacidad: <input type="text" th:field="*{capacidad}" /></label><br/>
+        <button type="submit">Guardar</button>
+    </form>
+</body>
+</html>

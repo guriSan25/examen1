@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Contenedores</title></head>
+<body>
+    <h1>Lista de Contenedores</h1>
+    <a href="/contenedores/nuevo">Agregar Contenedor</a>
+    <table>
+        <tr>
+            <th>ID</th><th>VIN</th><th>Fecha</th><th>Barco</th><th>Acciones</th>
+        </tr>
+        <tr th:each="c : ${contenedores}">
+            <td th:text="${c.id_contenedor}"></td>
+            <td th:text="${c.vin}"></td>
+            <td th:text="${c.fecha}"></td>
+            <td th:text="${c.barco.nombre}"></td>
+            <td>
+                <a th:href="@{/contenedores/editar/{id}(id=${c.id_contenedor})}">Editar</a>
+                <a th:href="@{/contenedores/eliminar/{id}(id=${c.id_contenedor})}">Eliminar</a>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
